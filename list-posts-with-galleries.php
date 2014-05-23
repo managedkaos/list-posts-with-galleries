@@ -3,7 +3,7 @@
   Plugin Name: List Posts With Galleries
   Plugin URI: http://managedkaos.com
   Description: List all posts that have a gallery.
-  Version: 2014.03.16
+  Version: 2014.05.22
   Author: Managed Kaos
   Author URI: http://managedkaos.com
   Author Email: info@managedkaos.com
