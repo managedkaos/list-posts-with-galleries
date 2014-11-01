@@ -32,6 +32,9 @@
   SOFTWARE.
 
  */
+if(!class_exists('WP_List_Table')){
+    require_once( ABSPATH . 'wp-admin/includes/class-wp-list-table.php' );
+}
 
 // Hook for adding admin menus
 add_action('admin_menu', 'mt_add_pages');
@@ -79,7 +82,12 @@ function mt_tools_page() {
                 <th scope='col' id='comments' class='manage-column column-comments'  style=""><span><span class="vers"></span></span><span class="sorting-indicator"></span></th>
                 <th scope='col' id='date' class='manage-column column-date'  style=""><span>Date</span><span class="sorting-indicator"></span></th>
             </tr>
-            <?php foreach ($post_list as $post) : setup_postdata($post); ?>
+            <?php
+            foreach ($post_list as $post) : setup_postdata($post);
+                if (!get_post_gallery()) :
+                    continue;
+                endif;
+                ?>
                 <tr>
                     <td><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></td>
                     <td><?php the_author(); ?></td>
